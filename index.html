@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dharitri Eco-Packaging</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { background-color: #ece8d7; color: #274f12; font-family: 'Georgia', serif; margin: 0; padding: 0; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+    nav a { margin: 0 10px; color: #274f12; text-decoration: none; }
+    .hero { text-align: center; padding: 50px 20px; }
+    .hero h1 { font-size: 3em; }
+    .products, .mission, .reviews, .contact { padding: 40px 20px; text-align: center; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+    .product-grid img { width: 100%; transition: transform 0.3s, box-shadow 0.3s; }
+    .product-grid img:hover { transform: scale(1.1); box-shadow: 0px 8px 20px rgba(39, 79, 18, 0.3); }
+    .mission p { max-width: 700px; margin: auto; }
+    .reviews-carousel-wrapper { position: relative; overflow: hidden; }
+    .reviews-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding: 20px; scroll-behavior: smooth; }
+    .reviews-carousel blockquote { min-width: 300px; background: #fff; padding: 20px; border-radius: 8px; scroll-snap-align: start; box-shadow: 0 4px 8px rgba(0,0,0,0.1); font-style: italic; flex: 0 0 auto; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: #274f12; color: #ece8d7; border: none; padding: 10px; cursor: pointer; font-size: 20px; z-index: 1; }
+    .carousel-btn.left { left: 10px; }
+    .carousel-btn.right { right: 10px; }
+    .contact-icons a { display: inline-block; margin: 0 10px; color: #274f12; font-size: 24px; }
+    footer { background-color: #274f12; color: #ece8d7; text-align: center; padding: 20px; }
+    footer a { color: #ece8d7; text-decoration: underline; }
+  </style>
+  <script>
+    function scrollCarousel(direction) {
+      const carousel = document.querySelector('.reviews-carousel');
+      const scrollAmount = 320;
+      carousel.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="assets/logooo.jpeg" alt="Dharitri Logo" height="50" />
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#mission">Our Mission</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Eco-Friendly Packaging</h1>
+    <p>Wrap the Future in Green with Sustainable Alternatives</p>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+  </section>
+
+  <section class="mission" id="mission">
+    <h2>Our Mission</h2>
+    <p>Our packaging is for the conscious creator. Every Dharitri product is a step toward cleaner skies and greener lands.
+      From food trays to paper bags, we ensure everything you carry reflects care—for the environment, and for future generations.</p>
+    <h3>How We Make It</h3>
+    <p>We upcycle agricultural by-products like <strong>sugarcane bagasse</strong> and <strong>rice husk</strong>—often burned by farmers—into compostable packaging.
+      This not only helps reduce air pollution and waste but also replaces plastic with purpose.</p>
+    <img src="assets/A_flat-style_digital_illustration_diagram_illustra.png" alt="Material Conversion Diagram" width="90%" />
+  </section>
+
+  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div><img src="assets/bag.png" alt="Eco Bag" /></div>
+      <div><img src="assets/boat.png" alt="Boat Tray" /></div>
+      <div><img src="assets/bowl.png" alt="Bowl" /></div>
+      <div><img src="assets/cup.png" alt="Cup" /></div>
+      <div><img src="assets/clamshellbox.png" alt="Clamshell Box" /></div>
+      <div><img src="assets/fork.png" alt="Fork" /></div>
+      <div><img src="assets/spoon.png" alt="Spoon" /></div>
+      <div><img src="assets/straws.png" alt="Straws" /></div>
+      <div><img src="assets/wrapingpaper.png" alt="Wrapping Paper" /></div>
+      <div><img src="assets/plate.png" alt="Plate" /></div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="reviews-carousel-wrapper">
+      <button class="carousel-btn left" onclick="scrollCarousel('left')">&#10094;</button>
+      <div class="reviews-carousel">
+        <blockquote>"As a cafe owner, I love that Dharitri gives me guilt-free packaging options that also look great!" — Priya S.</blockquote>
+        <blockquote>"Reliable, sustainable, and beautifully branded. Dharitri is our go-to for eco-packaging." — The Green Box</blockquote>
+        <blockquote>"Big fan of the mission. It’s rare to find packaging that aligns with our brand ethics." — Rishabh, EarthBites</blockquote>
+      </div>
+      <button class="carousel-btn right" onclick="scrollCarousel('right')">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:dharitrieco@gmail.com">dharitrieco@gmail.com</a></p>
+    <p>Phone: <a href="tel:+9198xxxxxxx0">+91 98xxxxxxx0</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/greenbydharitri" target="_blank">@greenbydharitri</a></p>
+    <div class="contact-icons">
+      <a href="mailto:dharitrieco@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+9198xxxxxxx0"><i class="fas fa-phone"></i></a>
+      <a href="https://www.instagram.com/greenbydharitri" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dharitri. Wrap the Future in Green.</p>
+    <p><a href="#">Back to Top</a></p>
+  </footer>
+</body>
+</html>
