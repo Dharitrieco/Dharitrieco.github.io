@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dharitri – Eco-Friendly Packaging</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'DM Serif Display', serif; background-color: #ece8d7; color: #274f12; }
+    header { position: sticky; top: 0; background: #ece8d7; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+    header img { height: 40px; }
+    nav a { margin: 0 15px; color: #274f12; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .hero { position: relative; width: 100%; height: 80vh; background: url('assets/hero-banner.png') no-repeat center center/cover; }
+    .hero-caption { background: rgba(236, 232, 215, 0.85); margin-top: -40px; padding: 30px; text-align: center; border-radius: 10px; max-width: 80%; margin-left: auto; margin-right: auto; position: relative; z-index: 10; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease-out forwards; }
+    .hero-caption h1 { font-size: 2.5em; margin: 0; }
+    .hero-caption p { font-size: 1.2em; margin: 10px 0 20px; }
+    .hero-caption button { padding: 10px 20px; font-size: 1em; background: #274f12; color: #ece8d7; border: none; border-radius: 5px; cursor: pointer; transition: box-shadow 0.3s ease; }
+    .hero-caption button:hover { box-shadow: 0 4px 15px rgba(39, 79, 18, 0.4); }
+    section { padding: 80px 30px; }
+    .contact-icons a:hover i, .fas:hover, .fab:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+    footer { background: #274f12; color: #ece8d7; text-align: center; padding: 20px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo.jpeg" alt="Dharitri Logo">
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#products">Products</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero"></div>
+  <div class="hero-caption">
+    <h1>Upcycling Nature. Wrapping Futures.</h1>
+    <p>Eco-friendly packaging crafted from agricultural waste. Simple. Responsible. Beautiful.</p>
+    <button onclick="scrollToProducts()">Shop Now</button>
+  </div>
+
+  <section id="contact">
+    <div style="text-align: center; margin-bottom: 10px;">
+      <a href="mailto:dharitrieco@gmail.com" target="_blank">
+        <i class="fas fa-envelope" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
+      </a>
+      <a href="tel:+9198xxxxxxx0" target="_blank">
+        <i class="fas fa-phone" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
+      </a>
+      <a href="https://www.instagram.com/greenbydharitri" target="_blank">
+        <i class="fab fa-instagram" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
+      </a>
+    </div>
+    <footer>
+      <p>&copy; 2025 Dharitri. All rights reserved.</p>
+    </footer>
+  </section>
+</body>
+</html>
