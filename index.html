@@ -7,23 +7,48 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
+    .contact-icons a:hover i,
+    .fas:hover,
+    .fab:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
     body { margin: 0; font-family: 'DM Serif Display', serif; background-color: #ece8d7; color: #274f12; }
     header { position: sticky; top: 0; background: #ece8d7; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
     header img { height: 40px; }
     nav a { margin: 0 15px; color: #274f12; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
-    .hero { position: relative; width: 100%; height: 80vh; background: url('assets/hero-banner.png') no-repeat center center/cover; }
+    .hero { position: relative; width: 100%; height: 80vh; background: url('assets/hero.png') no-repeat center center/cover; }
     .hero-caption { background: rgba(236, 232, 215, 0.85); margin-top: -40px; padding: 30px; text-align: center; border-radius: 10px; max-width: 80%; margin-left: auto; margin-right: auto; position: relative; z-index: 10; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease-out forwards; }
     .hero-caption h1 { font-size: 2.5em; margin: 0; }
     .hero-caption p { font-size: 1.2em; margin: 10px 0 20px; }
     .hero-caption button { padding: 10px 20px; font-size: 1em; background: #274f12; color: #ece8d7; border: none; border-radius: 5px; cursor: pointer; transition: box-shadow 0.3s ease; }
     .hero-caption button:hover { box-shadow: 0 4px 15px rgba(39, 79, 18, 0.4); }
     section { padding: 80px 30px; }
-    .contact-icons a:hover i, .fas:hover, .fab:hover {
-      transform: scale(1.2);
-      transition: transform 0.3s ease;
+    .two-col { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+    .two-col img { max-width: 500px; width: 100%; border-radius: 8px; }
+    .two-col div { flex: 1; min-width: 280px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+    .product-card { background: #f2e9d8; padding: 10px; border-radius: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); opacity: 0; transform: scale(0.9); transition: transform 0.5s ease, opacity 0.5s ease; }
+    .product-card.in-view { opacity: 1; transform: scale(1); }
+    .product-card img { width: 100%; border-radius: 5px; transition: transform 0.3s ease; }
+    .product-card img:hover { transform: scale(1.05); }
+    .product-card button { margin-top: 5px; padding: 6px 12px; background: #274f12; color: #ece8d7; border: none; border-radius: 4px; }
+    .carousel-wrapper { overflow: hidden; position: relative; }
+    .carousel { display: flex; gap: 20px; padding: 20px 0; scroll-behavior: smooth; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .carousel blockquote { scroll-snap-align: start; min-width: 250px; max-width: 300px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-style: italic; word-wrap: break-word; white-space: normal; flex-shrink: 0; }
+    .dots { text-align: center; margin-top: 10px; }
+    .dot { height: 10px; width: 10px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; }
+    .dot.active { background-color: #274f12; }
+    .contact-icons a { font-size: 24px; margin: 0 10px; color: #274f12; }
+    footer { background: #274f12; color: #ece8d7; text-align: center; padding: 20px; margin-top: 50px; }
+    @media (max-width: 768px) {
+      .hero-caption h1 { font-size: 2em; }
+      .two-col { flex-direction: column; }
     }
-    footer { background: #274f12; color: #ece8d7; text-align: center; padding: 20px; margin-top: 30px; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -37,28 +62,105 @@
     </nav>
   </header>
 
-  <div class="hero"></div>
+  <div class="hero" style="background-image: url('assets/hero-banner.png');"></div>
   <div class="hero-caption">
     <h1>Upcycling Nature. Wrapping Futures.</h1>
     <p>Eco-friendly packaging crafted from agricultural waste. Simple. Responsible. Beautiful.</p>
     <button onclick="scrollToProducts()">Shop Now</button>
   </div>
 
-  <section id="contact">
-    <div style="text-align: center; margin-bottom: 10px;">
-      <a href="mailto:dharitrieco@gmail.com" target="_blank">
-        <i class="fas fa-envelope" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
-      </a>
-      <a href="tel:+9198xxxxxxx0" target="_blank">
-        <i class="fas fa-phone" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
-      </a>
-      <a href="https://www.instagram.com/greenbydharitri" target="_blank">
-        <i class="fab fa-instagram" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
-      </a>
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product-card"><img src="assets/bag.png" alt="Paper Bag"><h4>Paper Bag</h4><p>₹10</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/boat.png" alt="Boat Tray"><h4>Boat Tray</h4><p>₹8</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/bowl.png" alt="Bowl"><h4>Bowl</h4><p>₹6</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/cup.png" alt="Cup"><h4>Cup</h4><p>₹7</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/clamshellbox.png" alt="Clamshell Box"><h4>Clamshell Box</h4><p>₹12</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/fork.png" alt="Fork"><h4>Fork</h4><p>₹4</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/spoon.png" alt="Spoon"><h4>Spoon</h4><p>₹4</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/straws.png" alt="Straws"><h4>Straws</h4><p>₹3</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/wrapingpaper.png" alt="Wrapping Paper"><h4>Wrapping Paper</h4><p>₹5</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/plate.png" alt="Plate"><h4>Plate</h4><p>₹6</p><button>Add to Cart</button></div>
+      <div class="product-card"><img src="assets/packaging_tape.png" alt="Packaging Tape"><h4>Packaging Tape</h4><p>₹20</p><button>Add to Cart</button></div>
     </div>
-    <footer>
-      <p>&copy; 2025 Dharitri. All rights reserved.</p>
-    </footer>
   </section>
+
+  <section id="reviews">
+    <h2>What Customers Say</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="reviewCarousel">
+        <blockquote>“Eco and elegant. These are now our cafe’s identity.”<br>– Priya S.</blockquote>
+        <blockquote>“Packaging that respects the planet and our budget.”<br>– EarthBites</blockquote>
+        <blockquote>“Reliable quality, beautiful design. Go Dharitri!”<br>– Café Ankur</blockquote>
+        <blockquote>“Truly sustainable. Customers notice the difference.”<br>– Leaf & Bean</blockquote>
+        <blockquote>“We've reduced our carbon footprint thanks to Dharitri.”<br>– GreenCart</blockquote>
+        <blockquote>“I love how it looks and feels. Great alternative to plastic.”<br>– Meera T.</blockquote>
+      </div>
+    </div>
+    <div class="dots" id="reviewDots"></div>
+  </section>
+
+  <script>
+    function scrollToProducts() {
+      const el = document.getElementById('products');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.product-card').forEach(card => {
+        observer.observe(card);
+      });
+
+      const carousel = document.getElementById("reviewCarousel");
+      const dotsContainer = document.getElementById("reviewDots");
+      const reviews = carousel.querySelectorAll("blockquote");
+
+      reviews.forEach((_, idx) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (idx === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          carousel.scrollTo({ left: reviews[idx].offsetLeft, behavior: "smooth" });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      carousel.addEventListener("scroll", () => {
+        let scrollPos = carousel.scrollLeft;
+        let blockWidth = reviews[0].offsetWidth + 20; // including gap
+        let index = Math.round(scrollPos / blockWidth);
+        document.querySelectorAll(".dot").forEach((d, i) => {
+          d.classList.toggle("active", i === index);
+        });
+      });
+    });
+  </script>
+  <section id="contact">
+  <div style="text-align: center; margin-bottom: 10px;">
+    <a href="mailto:dharitrieco@gmail.com" target="_blank">
+      <i class="fas fa-envelope" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
+    </a>
+    <a href="tel:+9198xxxxxxx0" target="_blank">
+      <i class="fas fa-phone" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
+    </a>
+    <a href="https://www.instagram.com/greenbydharitri" target="_blank">
+      <i class="fab fa-instagram" style="color: #274f12; font-size: 24px; margin: 0 15px;"></i>
+    </a>
+  </div>
+  <footer>
+    <p>&copy; 2025 Dharitri. All rights reserved.</p>
+  </footer>
+</section>
 </body>
 </html>
+
+ 
